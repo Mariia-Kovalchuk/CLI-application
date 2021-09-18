@@ -74,37 +74,56 @@ invokeAction(argv);
 // async function invokeAction({ action, id, name, email, phone }) {
 //     switch (action) {
 //         case 'list':
-//             const contacts = await contactsHandler.listContacts();
-//             console.table(contacts);
+//             try {
+//                 const contacts = await contactsHandler.listContacts();
+//                 console.table(contacts);
+                
+//             } catch (error) {
+//                 console.log(error.message);
+//             };
 //             break;
-
+            
 //         case 'get':
-//             const contact = await contactsHandler.getContactById(id)
-//             if (!contact) {
-//                 console.log(`There is no contact with id ${id}`);
-//                 break;
-//             }
-//             console.log(`Contact with id ${id}: `, contact);
+//             try {
+//                 const contact = await contactsHandler.getContactById(id)
+//                 if (!contact) {
+//                     console.log(`There is no contact with id ${id}`);
+//                     return;
+//                 }
+//                 console.log(`Contact with id ${id}: `, contact);
+                    
+//             } catch (error) {
+//                 console.log(error.message);
+//             };
 //             break;
-
+            
 //         case 'add':
-//             const updatedList = await contactsHandler.addContact(name, email, phone)
-//             if (!updatedList) {
-//                 console.log('Name, email and phone should be send in request');
-//                 break;
+//             try {
+//                 const updatedList = await contactsHandler.addContact(name, email, phone)
+//                 if (!updatedList) {
+//                     console.log('Name, email and phone should be send in request');
+//                     return;
+//                 }
+//                 console.log(`The new contact ${name} was added successfully. The updated contact list:`);
+//                 console.table(updatedList);
+                    
+//             } catch (error) {
+//                 console.log(error.message);
 //             }
-//             console.log(`The new contact ${name} was added successfully. The updated contact list:`);
-//             console.table(updatedList);
 //             break;
-
+            
 //         case 'remove':
-//             const updatedContactList = await contactsHandler.removeContact(id)
-//             if (!updatedContactList) {
-//                 console.log(`There is no contact with id ${id}`);
-//                 break;
+//             try {
+//                 const updatedContactList = await contactsHandler.removeContact(id)
+//                 if (!updatedContactList) {
+//                     console.log(`There is no contact with id ${id}`);
+//                     return;
+//                 }
+//                 console.log(`The contact with id ${id} was removed successfully. The updated contact list:`);
+//                 console.table(updatedContactList);
+//             } catch (error) {
+//                 console.log(error.message);
 //             }
-//             console.log(`The contact with id ${id} was removed successfully. The updated contact list:`);
-//             console.table(updatedContactList);
 //             break;
 
 //         default:
